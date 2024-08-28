@@ -2,7 +2,6 @@
 
 namespace SmartonDev\HttpCacheMiddleware\Http\Middleware;
 
-use Closure;
 use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\ContainerInterface;
 use Psr\Container\NotFoundExceptionInterface;

@@ -3,7 +3,7 @@
 namespace SmartonDev\HttpCacheMiddleware\Contracts;
 
 use Psr\Http\Message\ServerRequestInterface;
-use SmartonDev\HttpCache\ETagHeaderBuilder;
+use SmartonDev\HttpCache\Builders\ETagHeaderBuilder;
 
 /**
  * Interface for resolving the ETag for a given request.

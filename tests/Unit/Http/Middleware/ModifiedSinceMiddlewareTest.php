@@ -5,13 +5,13 @@ namespace SmartonDev\HttpCacheMiddleware\Tests\Unit\Http\Middleware;
 use DI\Container;
 use DI\ContainerBuilder;
 use PHPUnit\Framework\Attributes\DataProvider;
-use SmartonDev\HttpCache\ModifiedMatcher;
+use SmartonDev\HttpCache\Helpers\HttpHeaderHelper;
+use SmartonDev\HttpCache\Matchers\ModifiedMatcher;
 use SmartonDev\HttpCacheMiddleware\Contracts\HttpCacheContextServiceInterface;
 use SmartonDev\HttpCacheMiddleware\Http\Middleware\ModifiedSinceMiddleware;
 use SmartonDev\HttpCacheMiddleware\Providers\Constants\ProviderConstants;
 use SmartonDev\HttpCacheMiddleware\Services\HttpCacheContextService;
 use SmartonDev\HttpCacheMiddleware\Tests\Unit\Http\Middleware\Mocks\LastModifiedResolverMock;
-use function SmartonDev\HttpCache\httpHeaderDate;
 
 class ModifiedSinceMiddlewareTest extends MiddlewareTestBase
 {
@@ -31,17 +31,17 @@ class ModifiedSinceMiddlewareTest extends MiddlewareTestBase
     {
         return [
             'equal' => [
-                ['if-modified-since' => httpHeaderDate(strtotime('2020-01-01 00:00:00'))],
+                ['if-modified-since' => HttpHeaderHelper::toDateString(strtotime('2020-01-01 00:00:00'))],
                 '2020-01-01 00:00:00',
                 304,
             ],
             'modified' => [
-                ['if-modified-since' => httpHeaderDate(strtotime('2020-01-01 00:00:00'))],
+                ['if-modified-since' => HttpHeaderHelper::toDateString(strtotime('2020-01-01 00:00:00'))],
                 '2020-01-02 00:00:00',
                 200,
             ],
             'before' => [
-                ['if-modified-since' => httpHeaderDate(strtotime('2020-01-02 00:00:00'))],
+                ['if-modified-since' => HttpHeaderHelper::toDateString(strtotime('2020-01-02 00:00:00'))],
                 '2020-01-01 00:00:00',
                 304,
             ],
@@ -70,17 +70,17 @@ class ModifiedSinceMiddlewareTest extends MiddlewareTestBase
     {
         return [
             'equal' => [
-                ['if-unmodified-since' => httpHeaderDate(strtotime('2020-01-01 00:00:00'))],
+                ['if-unmodified-since' => HttpHeaderHelper::toDateString(strtotime('2020-01-01 00:00:00'))],
                 '2020-01-01 00:00:00',
                 200,
             ],
             'modified' => [
-                ['if-unmodified-since' => httpHeaderDate(strtotime('2020-01-01 00:00:00'))],
+                ['if-unmodified-since' => HttpHeaderHelper::toDateString(strtotime('2020-01-01 00:00:00'))],
                 '2020-01-02 00:00:00',
                 412,
             ],
             'before' => [
-                ['if-unmodified-since' => httpHeaderDate(strtotime('2020-01-02 00:00:00'))],
+                ['if-unmodified-since' => HttpHeaderHelper::toDateString(strtotime('2020-01-02 00:00:00'))],
                 '2020-01-01 00:00:00',
                 200,
             ],
