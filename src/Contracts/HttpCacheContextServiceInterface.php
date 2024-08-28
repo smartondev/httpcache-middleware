@@ -2,7 +2,7 @@
 
 namespace SmartonDev\HttpCacheMiddleware\Contracts;
 
-use SmartonDev\HttpCache\ETagHeaderBuilder;
+use SmartonDev\HttpCache\Builders\ETagHeaderBuilder;
 
 /**
  * Interface for the HttpCacheContextService.

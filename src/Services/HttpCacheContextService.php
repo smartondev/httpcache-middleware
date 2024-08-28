@@ -2,8 +2,8 @@
 
 namespace SmartonDev\HttpCacheMiddleware\Services;
 
-use SmartonDev\HttpCache\CacheHeaderBuilder;
-use SmartonDev\HttpCache\ETagHeaderBuilder;
+use SmartonDev\HttpCache\Builders\CacheHeaderBuilder;
+use SmartonDev\HttpCache\Builders\ETagHeaderBuilder;
 use SmartonDev\HttpCacheMiddleware\Contracts\HttpCacheContextServiceInterface;
 
 /**

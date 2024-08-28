@@ -2,7 +2,6 @@
 
 namespace SmartonDev\HttpCacheMiddleware\Http\Middleware;
 
-use Closure;
 use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\ContainerInterface;
 use Psr\Container\NotFoundExceptionInterface;
@@ -10,8 +9,8 @@ use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\MiddlewareInterface;
 use Psr\Http\Server\RequestHandlerInterface;
-use SmartonDev\HttpCache\ETagHeaderBuilder;
-use SmartonDev\HttpCache\ETagMatcher;
+use SmartonDev\HttpCache\Builders\ETagHeaderBuilder;
+use SmartonDev\HttpCache\Matchers\ETagMatcher;
 use SmartonDev\HttpCacheMiddleware\Contracts\ETagResolverInterface;
 use SmartonDev\HttpCacheMiddleware\Contracts\HttpCacheContextServiceInterface;
 use SmartonDev\HttpCacheMiddleware\Http\Constants\HttpStatusCodeConstants;
