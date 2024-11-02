@@ -19,6 +19,9 @@
       "email": "kamarton@gmail.com"
     }
   ],
+  "scripts": {
+    "test": "phpunit"
+  },
   "require": {
     "php": "^8.2",
     "psr/http-message": "^2.0",
